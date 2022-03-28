@@ -1,0 +1,10 @@
+com\Base.class
+com\model\UserRegisterResponse.class
+ForgotPassPage.class
+HomePageBurger.class
+com\model\User.class
+PersonalAccountPage.class
+RegistrationPage.class
+LoginPage.class
+com\UserOperations.class
+com\model\Tokens.class

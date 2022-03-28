@@ -1,7 +1,3 @@
-import com.POJO.ForgotPassPage;
-import com.POJO.HomePageBurger;
-import com.POJO.LoginPage;
-import com.POJO.RegistrationPage;
 import com.UserOperations;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
