@@ -1,4 +1,7 @@
 import com.UserOperations;
+import com.pages.HomePageBurger;
+import com.pages.LoginPage;
+import com.pages.PersonalAccountPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Test;
@@ -15,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 public class LoginAndOpenPersonalAccountTest {
     @Test
-    public void LoginOpenPersonalAccount() throws InterruptedException {
+    public void LoginOpenPersonalAccount() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -33,10 +36,8 @@ public class LoginAndOpenPersonalAccountTest {
                 .setPassForLogin(pass)
                 .clickButtonLogin();
         homePageBurger.clickButtonPersonalAccount();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean personalAccountPageVisible = page(PersonalAccountPage.class)
+        PersonalAccountPage personalAccountPageVisible = page(PersonalAccountPage.class)
                 .checkVisibleInformText();
-        assertTrue("Not visible home page", personalAccountPageVisible);
         driver.close();
     }
 
@@ -66,7 +67,7 @@ public class LoginAndOpenPersonalAccountTest {
     }
 
     @Test
-    public void LoginOpenPersonalAccountYanex() throws InterruptedException {
+    public void LoginOpenPersonalAccountYanex() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/yandexdriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -84,10 +85,8 @@ public class LoginAndOpenPersonalAccountTest {
                 .setPassForLogin(pass)
                 .clickButtonLogin();
         homePageBurger.clickButtonPersonalAccount();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean personalAccountPageVisible = page(PersonalAccountPage.class)
+        PersonalAccountPage personalAccountPageVisible = page(PersonalAccountPage.class)
                 .checkVisibleInformText();
-        assertTrue("Not visible home page", personalAccountPageVisible);
         driver.close();
     }
 

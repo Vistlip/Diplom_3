@@ -1,9 +1,12 @@
+package com.pages;
+
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class LoginPage {
-    public static final String URL = "https://stellarburgers.nomoreparties.site/login";
+    public static final String URL = Urls.LoginPageURL;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"root\"]/div/main/div/form/fieldset[1]/div/div/input")
     private SelenideElement inputLogin;
@@ -21,8 +24,9 @@ public class LoginPage {
         return this;
     }
 
-    public Boolean checkButtonEnterVisible() {
-        return this.clickButtonLogin.isDisplayed();
+    public LoginPage checkButtonEnterVisible() {
+        this.clickButtonLogin.shouldBe(Condition.visible);
+        return this;
     }
 
     public LoginPage setEmailForLogin(String email) {

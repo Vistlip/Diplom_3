@@ -1,3 +1,5 @@
+import com.pages.LoginPage;
+import com.pages.RegistrationPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
@@ -12,7 +14,7 @@ public class RegistrationUserTest {
     public static final String EMAIL_POSTFIX = "@yandex.ru";
     String json;
     @Test
-    public void registrationNewUserYandex() throws InterruptedException {
+    public void registrationNewUserYandex() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/yandexdriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -29,15 +31,13 @@ public class RegistrationUserTest {
                 .setEmailForRegistration(email)
                 .setPassForRegistration(password);
         registrationPage.clickButtonRegistration();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean loginPageVisible = page(LoginPage.class)
+        LoginPage loginPageVisible = page(LoginPage.class)
                 .checkButtonEnterVisible();
-        assertTrue(loginPageVisible);
         driver.close();
     }
 
     @Test
-    public void registrationNewUserIncorrectPasswordYandex() throws InterruptedException {
+    public void registrationNewUserIncorrectPasswordYandex() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/yandexdriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -53,14 +53,13 @@ public class RegistrationUserTest {
         registrationPage.setNameForRegistration(name)
                 .setEmailForRegistration(email)
                 .setPassForRegistration("123")
-                .clickButtonRegistration();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        assertTrue("Not visible login page", registrationPage.checkPassIncorrect());
+                .clickButtonRegistration()
+                .checkPassIncorrect();
         driver.close();
     }
 
     @Test
-    public void registrationNewUser() throws InterruptedException {
+    public void registrationNewUser() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -77,15 +76,13 @@ public class RegistrationUserTest {
                 .setEmailForRegistration(email)
                 .setPassForRegistration(password);
         registrationPage.clickButtonRegistration();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean loginPageVisible = page(LoginPage.class)
+        LoginPage loginPageVisible = page(LoginPage.class)
                 .checkButtonEnterVisible();
-        assertTrue(loginPageVisible);
         driver.close();
     }
 
     @Test
-    public void registrationNewUserIncorrectPassword() throws InterruptedException {
+    public void registrationNewUserIncorrectPassword() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -101,9 +98,8 @@ public class RegistrationUserTest {
         registrationPage.setNameForRegistration(name)
                 .setEmailForRegistration(email)
                 .setPassForRegistration("123")
-                .clickButtonRegistration();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        assertTrue("Not visible login page", registrationPage.checkPassIncorrect());
+                .clickButtonRegistration()
+                .checkPassIncorrect();
         driver.close();
     }
 

@@ -1,9 +1,12 @@
+package com.pages;
+
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class RegistrationPage {
-    public static final String URL = "https://stellarburgers.nomoreparties.site/register";
+    public static final String URL = Urls.RegistrationPageURL;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"root\"]/div/main/div/form/fieldset[1]/div/div/input")
     private SelenideElement inputName;
@@ -46,8 +49,9 @@ public class RegistrationPage {
         return this;
     }
 
-    public Boolean checkPassIncorrect() {
-        return this.passIncorrect.isDisplayed();
+    public RegistrationPage checkPassIncorrect() {
+        this.passIncorrect.shouldBe(Condition.visible);
+        return this;
     }
 
 

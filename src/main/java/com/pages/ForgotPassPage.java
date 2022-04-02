@@ -1,9 +1,11 @@
+package com.pages;
+
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class ForgotPassPage {
-    public static final String URL = "https://stellarburgers.nomoreparties.site/forgot-password";
+    public static final String URL = Urls.ForgotPassPageURL;
 
     @FindBy(how = How.XPATH, using = ".//a[text()='Войти']")
     private SelenideElement buttonPageLogin;

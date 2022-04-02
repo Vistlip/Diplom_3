@@ -1,10 +1,12 @@
+package com.pages;
+
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class HomePageBurger {
-    public static final String URL = "https://stellarburgers.nomoreparties.site/";
+    public static final String URL = Urls.StartPageURL;
 
     @FindBy(how = How.XPATH, using = ".//button[text()='Войти в аккаунт']")
     private SelenideElement buttonPageLogin;
@@ -44,8 +46,9 @@ public class HomePageBurger {
         return this;
     }
 
-    public Boolean buttonPageOrderVisible() {
-        return this.buttonPageOrder.isDisplayed();
+    public HomePageBurger buttonPageOrderVisible() {
+        this.buttonPageOrder.shouldBe(Condition.visible);
+        return this;
     }
 
     public HomePageBurger clickButtonPersonalAccount() {

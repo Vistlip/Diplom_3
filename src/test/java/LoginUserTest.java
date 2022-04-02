@@ -1,4 +1,8 @@
 import com.UserOperations;
+import com.pages.ForgotPassPage;
+import com.pages.HomePageBurger;
+import com.pages.LoginPage;
+import com.pages.RegistrationPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Test;
@@ -15,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 
 public class LoginUserTest {
     @Test
-    public void LoginFromHomePage() throws InterruptedException {
+    public void LoginFromHomePage() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -32,15 +36,13 @@ public class LoginUserTest {
         loginPage.setEmailForLogin(email)
                 .setPassForLogin(pass)
                 .clickButtonLogin();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean isVisibleHomePageBurger = page(HomePageBurger.class)
+        HomePageBurger isVisibleHomePageBurger = page(HomePageBurger.class)
                 .buttonPageOrderVisible();
-        assertTrue("Not visible home page", isVisibleHomePageBurger);
         driver.close();
     }
 
     @Test
-    public void LoginFromPersonalAccount() throws InterruptedException {
+    public void LoginFromPersonalAccount() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -57,15 +59,13 @@ public class LoginUserTest {
         loginPage.setEmailForLogin(email)
                 .setPassForLogin(pass)
                 .clickButtonLogin();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean isVisibleHomePageBurger = page(HomePageBurger.class)
+        HomePageBurger isVisibleHomePageBurger = page(HomePageBurger.class)
                 .buttonPageOrderVisible();
-        assertTrue("Not visible home page", isVisibleHomePageBurger);
         driver.close();
     }
 
     @Test
-    public void LoginFromRegistrationPage() throws InterruptedException {
+    public void LoginFromRegistrationPage() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -82,15 +82,13 @@ public class LoginUserTest {
         loginPage.setEmailForLogin(email)
                 .setPassForLogin(pass)
                 .clickButtonLogin();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean isVisibleHomePageBurger = page(HomePageBurger.class)
+        HomePageBurger isVisibleHomePageBurger = page(HomePageBurger.class)
                 .buttonPageOrderVisible();
-        assertTrue("Not visible home page", isVisibleHomePageBurger);
         driver.close();
     }
 
     @Test
-    public void LoginFromForgotPassPage() throws InterruptedException {
+    public void LoginFromForgotPassPage() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -107,15 +105,13 @@ public class LoginUserTest {
         loginPage.setEmailForLogin(email)
                 .setPassForLogin(pass)
                 .clickButtonLogin();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean isVisibleHomePageBurger = page(HomePageBurger.class)
+        HomePageBurger isVisibleHomePageBurger = page(HomePageBurger.class)
                 .buttonPageOrderVisible();
-        assertTrue("Not visible home page", isVisibleHomePageBurger);
         driver.close();
     }
 
     @Test
-    public void LoginFromHomePageYandex() throws InterruptedException {
+    public void LoginFromHomePageYandex() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/yandexdriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -132,15 +128,13 @@ public class LoginUserTest {
         loginPage.setEmailForLogin(email)
                 .setPassForLogin(pass)
                 .clickButtonLogin();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean isVisibleHomePageBurger = page(HomePageBurger.class)
+        HomePageBurger isVisibleHomePageBurger = page(HomePageBurger.class)
                 .buttonPageOrderVisible();
-        assertTrue("Not visible home page", isVisibleHomePageBurger);
         driver.close();
     }
 
     @Test
-    public void LoginFromPersonalAccountYandex() throws InterruptedException {
+    public void LoginFromPersonalAccountYandex() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/yandexdriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -157,15 +151,13 @@ public class LoginUserTest {
         loginPage.setEmailForLogin(email)
                 .setPassForLogin(pass)
                 .clickButtonLogin();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean isVisibleHomePageBurger = page(HomePageBurger.class)
+        HomePageBurger isVisibleHomePageBurger = page(HomePageBurger.class)
                 .buttonPageOrderVisible();
-        assertTrue("Not visible home page", isVisibleHomePageBurger);
         driver.close();
     }
 
     @Test
-    public void LoginFromRegistrationPageYandex() throws InterruptedException {
+    public void LoginFromRegistrationPageYandex() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/yandexdriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -182,15 +174,13 @@ public class LoginUserTest {
         loginPage.setEmailForLogin(email)
                 .setPassForLogin(pass)
                 .clickButtonLogin();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean isVisibleHomePageBurger = page(HomePageBurger.class)
+        HomePageBurger isVisibleHomePageBurger = page(HomePageBurger.class)
                 .buttonPageOrderVisible();
-        assertTrue("Not visible home page", isVisibleHomePageBurger);
         driver.close();
     }
 
     @Test
-    public void LoginFromForgotPassPageYandex() throws InterruptedException {
+    public void LoginFromForgotPassPageYandex() {
         WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/resoursers/yandexdriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -207,10 +197,8 @@ public class LoginUserTest {
         loginPage.setEmailForLogin(email)
                 .setPassForLogin(pass)
                 .clickButtonLogin();
-        Thread.sleep(1000); //Без него падает проверка видимости
-        Boolean isVisibleHomePageBurger = page(HomePageBurger.class)
+        HomePageBurger isVisibleHomePageBurger = page(HomePageBurger.class)
                 .buttonPageOrderVisible();
-        assertTrue("Not visible home page", isVisibleHomePageBurger);
         driver.close();
     }
 
